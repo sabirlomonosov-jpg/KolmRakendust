@@ -35,23 +35,16 @@ namespace KolmRakendust
             btnColor.Width = 100;
             btnColor.Click += BtnColor_Click;
 
-            Button btnSlideShow = new Button();
-            btnSlideShow.Text = "Slideshow";
-            btnSlideShow.Left = 230;
-            btnSlideShow.Top = 10;
-            btnSlideShow.Width = 100;
-            btnSlideShow.Click += BtnSlideShow_Click;
-
             Button btnRotate = new Button();
             btnRotate.Text = "Pööra";
-            btnRotate.Left = 340;
+            btnRotate.Left = 230;
             btnRotate.Top = 10;
             btnRotate.Width = 100;
             btnRotate.Click += BtnRotate_Click;
 
             Button btnClear = new Button();
             btnClear.Text = "Puhasta";
-            btnClear.Left = 450;
+            btnClear.Left = 340;
             btnClear.Top = 10;
             btnClear.Width = 100;
             btnClear.Click += BtnClear_Click;
@@ -64,13 +57,8 @@ namespace KolmRakendust
             pictureBox.BorderStyle = BorderStyle.FixedSingle;
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
-            slideTimer = new Timer();
-            slideTimer.Interval = 2000;
-            slideTimer.Tick += SlideTimer_Tick;
-
             Controls.Add(btnOpen);
             Controls.Add(btnColor);
-            Controls.Add(btnSlideShow);
             Controls.Add(btnRotate);
             Controls.Add(btnClear);
             Controls.Add(pictureBox);
@@ -99,60 +87,6 @@ namespace KolmRakendust
                 pictureBox.BackColor =
                     colorDialog.Color;
             }
-        }
-
-        private void BtnSlideShow_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folder =
-                new FolderBrowserDialog();
-
-            if (folder.ShowDialog() == DialogResult.OK)
-            {
-                imageFiles = Directory.GetFiles(
-                    folder.SelectedPath,
-                    "*.jpg");
-
-                if (imageFiles.Length > 0)
-                {
-                    currentImage = 0;
-
-                    pictureBox.Image =
-                        Image.FromFile(
-                            imageFiles[currentImage]);
-
-                    slideTimer.Start();
-
-                    MessageBox.Show(
-                        "Slideshow käivitatud!");
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Kaustas ei ole JPG pilte!");
-                }
-            }
-        }
-
-        private void SlideTimer_Tick(
-            object sender,
-            EventArgs e)
-        {
-            if (imageFiles == null)
-                return;
-
-            if (imageFiles.Length == 0)
-                return;
-
-            currentImage++;
-
-            if (currentImage >= imageFiles.Length)
-            {
-                currentImage = 0;
-            }
-
-            pictureBox.Image =
-                Image.FromFile(
-                    imageFiles[currentImage]);
         }
 
         private void BtnRotate_Click(
