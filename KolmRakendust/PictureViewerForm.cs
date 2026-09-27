@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace KolmRakendust
@@ -9,104 +9,180 @@ namespace KolmRakendust
     {
         private PictureBox pictureBox;
 
-        private Timer slideTimer;
-
-        private string[] imageFiles;
-
-        private int currentImage = 0;
+        private Button openButton;
+        private Button clearButton;
+        private Button colorButton;
+        private Button rotateButton;
+        private Button saveButton;
 
         public PictureViewerForm()
         {
             Text = "Pildi vaatamise programm";
+
             Width = 900;
             Height = 700;
 
-            Button btnOpen = new Button();
-            btnOpen.Text = "Ava pilt";
-            btnOpen.Left = 10;
-            btnOpen.Top = 10;
-            btnOpen.Width = 100;
-            btnOpen.Click += BtnOpen_Click;
-
-            Button btnColor = new Button();
-            btnColor.Text = "Taustavärv";
-            btnColor.Left = 120;
-            btnColor.Top = 10;
-            btnColor.Width = 100;
-            btnColor.Click += BtnColor_Click;
-
-            Button btnRotate = new Button();
-            btnRotate.Text = "Pööra";
-            btnRotate.Left = 230;
-            btnRotate.Top = 10;
-            btnRotate.Width = 100;
-            btnRotate.Click += BtnRotate_Click;
-
-            Button btnClear = new Button();
-            btnClear.Text = "Puhasta";
-            btnClear.Left = 340;
-            btnClear.Top = 10;
-            btnClear.Width = 100;
-            btnClear.Click += BtnClear_Click;
-
-            pictureBox = new PictureBox();
-            pictureBox.Left = 10;
-            pictureBox.Top = 50;
-            pictureBox.Width = 850;
-            pictureBox.Height = 580;
-            pictureBox.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
-            Controls.Add(btnOpen);
-            Controls.Add(btnColor);
-            Controls.Add(btnRotate);
-            Controls.Add(btnClear);
-            Controls.Add(pictureBox);
+            CreateControls();
         }
 
-        private void BtnOpen_Click(object sender, EventArgs e)
+        private void CreateControls()
         {
-            OpenFileDialog dialog = new OpenFileDialog();
+            pictureBox = new PictureBox();
+
+            pictureBox.Left = 10;
+            pictureBox.Top = 60;
+
+            pictureBox.Width = 850;
+            pictureBox.Height = 550;
+
+            pictureBox.BorderStyle =
+                BorderStyle.FixedSingle;
+
+            pictureBox.SizeMode =
+                PictureBoxSizeMode.StretchImage;
+
+            Controls.Add(pictureBox);
+
+            openButton = new Button();
+            openButton.Text = "Ava pilt";
+            openButton.Left = 10;
+            openButton.Top = 10;
+            openButton.Click += OpenButton_Click;
+
+            Controls.Add(openButton);
+
+            clearButton = new Button();
+            clearButton.Text = "Puhasta";
+            clearButton.Left = 100;
+            clearButton.Top = 10;
+            clearButton.Click += ClearButton_Click;
+
+            Controls.Add(clearButton);
+
+            colorButton = new Button();
+            colorButton.Text = "Taust";
+            colorButton.Left = 190;
+            colorButton.Top = 10;
+            colorButton.Click += ColorButton_Click;
+
+            Controls.Add(colorButton);
+
+            rotateButton = new Button();
+            rotateButton.Text = "Pööra";
+            rotateButton.Left = 280;
+            rotateButton.Top = 10;
+            rotateButton.Click += RotateButton_Click;
+
+            Controls.Add(rotateButton);
+
+            saveButton = new Button();
+            saveButton.Text = "Salvesta";
+            saveButton.Left = 370;
+            saveButton.Top = 10;
+            saveButton.Click += SaveButton_Click;
+
+            Controls.Add(saveButton);
+        }
+
+        private void OpenButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog =
+                new OpenFileDialog();
 
             dialog.Filter =
                 "Images|*.jpg;*.jpeg;*.png;*.bmp";
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() ==
+                DialogResult.OK)
             {
                 pictureBox.Image =
-                    Image.FromFile(dialog.FileName);
+                    Image.FromFile(
+                        dialog.FileName);
             }
         }
 
-        private void BtnColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox.BackColor =
-                    colorDialog.Color;
-            }
-        }
-
-        private void BtnRotate_Click(
-            object sender,
-            EventArgs e)
-        {
-            if (pictureBox.Image != null)
-            {
-                pictureBox.Image.RotateFlip(
-                    RotateFlipType.Rotate90FlipNone);
-
-                pictureBox.Refresh();
-            }
-        }
-
-        private void BtnClear_Click(
+        private void ClearButton_Click(
             object sender,
             EventArgs e)
         {
             pictureBox.Image = null;
+        }
+
+        private void ColorButton_Click(
+            object sender,
+            EventArgs e)
+        {
+            ColorDialog dialog =
+                new ColorDialog();
+
+            if (dialog.ShowDialog() ==
+                DialogResult.OK)
+            {
+                pictureBox.BackColor =
+                    dialog.Color;
+            }
+        }
+
+        private void RotateButton_Click(
+            object sender,
+            EventArgs e)
+        {
+            if (pictureBox.Image == null)
+                return;
+
+            pictureBox.Image.RotateFlip(
+                RotateFlipType.Rotate90FlipNone);
+
+            pictureBox.Refresh();
+        }
+
+        private void SaveButton_Click(
+            object sender,
+            EventArgs e)
+        {
+            if (pictureBox.Image == null)
+            {
+                MessageBox.Show(
+                    "Pilt puudub!");
+                return;
+            }
+
+            SaveFileDialog dialog =
+                new SaveFileDialog();
+
+            dialog.Filter =
+                "JPEG|*.jpg|PNG|*.png|BMP|*.bmp";
+
+            if (dialog.ShowDialog() ==
+                DialogResult.OK)
+            {
+                string ext =
+                    System.IO.Path.GetExtension(
+                        dialog.FileName)
+                        .ToLower();
+
+                if (ext == ".jpg")
+                {
+                    pictureBox.Image.Save(
+                        dialog.FileName,
+                        ImageFormat.Jpeg);
+                }
+                else if (ext == ".png")
+                {
+                    pictureBox.Image.Save(
+                        dialog.FileName,
+                        ImageFormat.Png);
+                }
+                else if (ext == ".bmp")
+                {
+                    pictureBox.Image.Save(
+                        dialog.FileName,
+                        ImageFormat.Bmp);
+                }
+
+                MessageBox.Show(
+                    "Pilt salvestatud!");
+            }
         }
     }
 }
