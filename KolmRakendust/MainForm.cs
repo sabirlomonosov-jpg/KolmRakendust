@@ -24,7 +24,7 @@ namespace KolmRakendust
             btnMath.Top = 100;
             btnMath.Width = 180;
 
-            //btnMath.Click += BtnMath_Click;
+            btnMath.Click += BtnMath_Click;
 
             Button btnMatch = new Button();
             btnMatch.Text = "Paaride mäng";
@@ -45,11 +45,11 @@ namespace KolmRakendust
             form.ShowDialog();
         }
 
-        //private void BtnMath_Click(object sender, System.EventArgs e)
-        //{
-        //    MathQuizForm form = new MathQuizForm();
-        //    form.ShowDialog();
-        //}
+        private void BtnMath_Click(object sender, System.EventArgs e)
+        {
+            MathQuizForm form = new MathQuizForm();
+            form.ShowDialog();
+        }
 
         //private void BtnMatch_Click(object sender, System.EventArgs e)
         //{
