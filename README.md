@@ -1,118 +1,117 @@
 # Kolm Rakendust
 
-## Projekti kirjeldus
+## Projekti eesmärk
 
-See projekt sisaldab kolme Windows Forms rakendust:
+Selle projekti eesmärk on luua kolm Windows Forms rakendust C# keeles:
 
 1. Pildi vaatamise programm
 2. Matemaatiline mäng
 3. Sarnaste piltide mäng
 
-Projekt on loodud C# ja Windows Forms tehnoloogiaga. Kõik vormid avanevad peavormilt ning kasutavad objektorienteeritud programmeerimise põhimõtteid.
+Projekt on loodud õppetöö jaoks ning kõik vormid avatakse peavormilt.
 
 ---
 
-# Kasutatud tehnoloogiad
+## Kasutatud tehnoloogiad
 
 - C#
-- .NET Framework
-- Windows Forms
-- OOP (Object-Oriented Programming)
+- Windows Forms (.NET Framework)
+- OOP põhimõtted
 
 ---
 
-# Programmi käivitamine
+# 1. Pildi vaatamise programm
 
-1. Ava projekt Visual Studios.
-2. Käivita projekt (F5).
-3. Avaneb peavorm.
-4. Vali soovitud rakendus:
-   - Pildi vaatamise programm
-   - Matemaatiline mäng
-   - Sarnaste piltide mäng
+## Kirjeldus
 
----
+Programm võimaldab:
 
-# Pildi vaatamise programm
+- avada pilte
+- puhastada pilti
+- muuta taustavärvi
+- pöörata pilti
+- salvestada pilti teise formaati (JPG, PNG, BMP)
 
-## Eesmärk
+## Kasutamine
 
-Võimaldab avada ja vaadata pilte.
-
-## Funktsioonid
-
-- Pildi avamine
-- Taustavärvi muutmine ColorDialog abil
-- Piltide slaidiesitus
-- Pildi pööramine
-- Pildi puhastamine
+1. Vajuta "Ava pilt".
+2. Vali pildifail.
+3. Vajadusel muuda taustavärvi.
+4. Vajadusel pööra pilti.
+5. Salvesta pilt soovitud formaati.
 
 ## Arendusideed
 
-1. Lisa pildi suumimine.
-2. Lisa erinevad pildifiltrid.
-3. Lisa võimalus pilti salvestada teise formaati.
-
-## Eeldatav edasiareng
-
-Tulevikus saab lisada rohkem pilditöötluse võimalusi ja kasutajasõbralikuma liidese.
+1. Lisa automaatne slaidishow.
+2. Lisa pildi suurendamine ja vähendamine.
+3. Lisa pildi kärpimise võimalus.
 
 ---
 
-# Matemaatiline mäng
+# 2. Matemaatiline mäng
 
-## Eesmärk
+## Kirjeldus
 
-Harjutada matemaatilisi tehteid ning kontrollida teadmisi.
+Mäng genereerib juhuslikke matemaatilisi tehteid:
 
-## Funktsioonid
+- liitmine
+- lahutamine
+- korrutamine
+- jagamine
 
-- Liitmine
-- Lahutamine
-- Korrutamine
-- Jagamine
-- Taimer
-- Punktisüsteem
-- Raskusastme valik
-- Tulemuste salvestamine faili
+Mängijal tuleb vastused sisestada enne aja lõppu.
+
+## Lisafunktsioonid
+
+- raskusastme valik
+- punktisüsteem
+- tulemuste salvestamine faili
+
+## Kasutamine
+
+1. Vali raskusaste.
+2. Vajuta "Start".
+3. Lahenda tehted.
+4. Õige vastuse korral saad punkte.
+5. Tulemus salvestatakse faili.
 
 ## Arendusideed
 
-1. Lisa rohkem raskusastmeid.
-2. Lisa parimate tulemuste tabel.
-3. Lisa kasutaja nime sisestamine.
-
-## Eeldatav edasiareng
-
-Võimalik on lisada uusi ülesannete tüüpe, statistikat ja kasutajakontosid.
+1. Lisa edetabel.
+2. Lisa mitu mängijat.
+3. Lisa rohkem tehete tüüpe.
 
 ---
 
-# Sarnaste piltide mäng
+# 3. Sarnaste piltide mäng
 
-## Eesmärk
+## Kirjeldus
 
-Leida kõik ühesugused pildipaarid võimalikult kiiresti.
+Mängija peab leidma kaks ühesugust pilti.
 
-## Funktsioonid
+Mäng sisaldab:
 
-- Pildipaaride leidmine
-- Taimer
-- Mänguvälja suuruse valik (4x4, 6x6, 8x8)
-- Päris piltide kasutamine sümbolite asemel
+- päris pilte
+- taimerit
+- erinevaid mänguvälju
 
-## Arendusideed
+## Mänguväljad
 
-1. Lisa punktisüsteem.
-2. Lisa raskusastmed.
-3. Lisa parimate tulemuste salvestamine.
+- 4x4
+- 6x6
+- 8x8
 
-## Eeldatav edasiareng
+## Kasutamine
 
-Tulevikus saab lisada rohkem pilte, mängurežiime ja võistlusrežiimi.
+1. Vali mänguvälja suurus.
+2. Vajuta "Alusta".
+3. Ava kaks kaarti.
+4. Leia kõik paarid.
+5. Vaata lõppaega.
 
----
+## Piltide kaust
 
-# Kokkuvõte
+Projektis peab olema kaust:
 
-Projekt aitab õppida Windows Forms rakenduste loomist, sündmuste kasutamist, failidega töötamist ja objektorienteeritud programmeerimist C# keeles.
+```text
+Pictures
