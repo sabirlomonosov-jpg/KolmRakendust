@@ -79,14 +79,14 @@ namespace KolmRakendust
             Controls.Add(lblScore);
 
             Label title = new Label();
-            title.Text = "Time Left";
+            title.Text = "Järelejäänud aeg:";
             title.Left = 110;
             title.Top = 55;
-            title.Width = 70;
+            title.Width = 100;
 
             lblTime = new Label();
             lblTime.Text = "0";
-            lblTime.Left = 190;
+            lblTime.Left = 210;
             lblTime.Top = 55;
             lblTime.Width = 100;
             lblTime.BorderStyle = BorderStyle.FixedSingle;
@@ -144,7 +144,7 @@ namespace KolmRakendust
             Controls.Add(divideAnswer);
 
             startButton = new Button();
-            startButton.Text = "Start";
+            startButton.Text = "Algus";
             startButton.Left = 150;
             startButton.Top = 290;
             startButton.Width = 120;
@@ -229,7 +229,7 @@ namespace KolmRakendust
             divideAnswer.Value = 0;
 
             timeLeft = 30;
-            lblTime.Text = "30 seconds";
+            lblTime.Text = "30 sekundid";
 
             timer.Start();
         }
@@ -293,14 +293,14 @@ namespace KolmRakendust
                 timeLeft--;
 
                 lblTime.Text =
-                    timeLeft + " seconds";
+                    timeLeft + " sekundid";
             }
             else
             {
                 timer.Stop();
 
                 lblTime.Text =
-                    "Time is up!";
+                    "Aeg sai otsa!";
 
                 MessageBox.Show(
                     "Aeg sai otsa!");
