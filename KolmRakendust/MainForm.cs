@@ -32,7 +32,7 @@ namespace KolmRakendust
             btnMatch.Top = 160;
             btnMatch.Width = 180;
 
-            //btnMatch.Click += BtnMatch_Click;
+            btnMatch.Click += BtnMatch_Click;
 
             Controls.Add(btnPicture);
             Controls.Add(btnMath);
@@ -51,10 +51,10 @@ namespace KolmRakendust
             form.ShowDialog();
         }
 
-        //private void BtnMatch_Click(object sender, System.EventArgs e)
-        //{
-        //    MatchingGameForm form = new MatchingGameForm();
-        //    form.ShowDialog();
-        //}
+        private void BtnMatch_Click(object sender, System.EventArgs e)
+        {
+            MatchingGameForm form = new MatchingGameForm();
+            form.ShowDialog();
+        }
     }
 }
