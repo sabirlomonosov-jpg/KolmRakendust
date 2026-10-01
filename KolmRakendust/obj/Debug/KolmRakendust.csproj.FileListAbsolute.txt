@@ -1,0 +1,9 @@
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\bin\Debug\KolmRakendust.exe.config
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\bin\Debug\KolmRakendust.exe
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\bin\Debug\KolmRakendust.pdb
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\obj\Debug\KolmRakendust.csproj.AssemblyReference.cache
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\obj\Debug\KolmRakendust.Properties.Resources.resources
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\obj\Debug\KolmRakendust.csproj.GenerateResource.cache
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\obj\Debug\KolmRakendust.csproj.CoreCompileInputs.cache
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\obj\Debug\KolmRakendust.exe
+C:\Users\drakv\source\repos\KolmRakendust\KolmRakendust\obj\Debug\KolmRakendust.pdb

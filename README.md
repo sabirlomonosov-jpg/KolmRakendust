@@ -95,6 +95,20 @@ Mäng sisaldab:
 - taimerit
 - erinevaid mänguvälju
 
+## Mänguväljad
+
+- 4x4
+- 6x6
+- 8x8
+
+## Kasutamine
+
+1. Vali mänguvälja suurus.
+2. Vajuta "Alusta".
+3. Ava kaks kaarti.
+4. Leia kõik paarid.
+5. Vaata lõppaega.
+
 ## Piltide kaust
 
 Projektis peab olema kaust:
